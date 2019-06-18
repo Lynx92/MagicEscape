@@ -21,9 +21,7 @@ function drawAll() {
   // background()
   // paintPlayer();
   // drawEnemy();
-  // drawMagic()
-
-  
+  // drawMagic()s
 }
 
 function logicAll() {
@@ -47,7 +45,7 @@ function moveAll() {
   // damageToPlayer()
   // player(ctx)
   // draw()
-  
+  player.draw()
   
 }
 

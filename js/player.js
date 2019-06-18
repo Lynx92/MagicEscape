@@ -3,6 +3,7 @@ class Player {
     this.x = w2;
     this.y = h2;
 
+    this.ctx = ctx
     this.speed = 30;
 
     this.w = 50;
@@ -16,7 +17,8 @@ class Player {
     this.imgPlayerStand = new Image();
     this.imgPlayerStand.scr = "./img/playerStand.png";
     this.imgPlayerStand.frames = 1;
-    this.imgPlayerStand.frameIndex = 0;
+    this.imgPlayerStand.frameIndex = 1;
+    
 
     this.imgPlayerRight = new Image();
     this.imgPlayerRight.src = "img/playerRight.png";
@@ -33,29 +35,25 @@ class Player {
     this.imgPlayerUp.frames = 6;
     this.imgPlayerUp.frameIndex = 0;
 
-    this.setListeners()
+    // this.setListeners()
   }
 
   draw() {
     this.ctx.drawImage(
-      this.img,
-      this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
+      this.PlayerStand,
+      this.PlayerStand.frameIndex * Math.floor(this.PlayerStand.width / this.PlayerStand.frames),
       0,
-      Math.floor(this.img.width / this.img.frames),
-      this.img.height,
+      Math.floor(this.PlayerStand.width / this.PlayerStand.frames),
+      this.PlayerStand.height,
       this.x,
       this.y,
       this.w,
       this.h
     );
   }
-
-
-
-
-
 }
 
+let player = new Player()
 
 
 // function controlPlayer() {
