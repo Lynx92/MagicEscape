@@ -56,6 +56,7 @@ function magic() {
     }if (!this.active) {
       // magicCounter.filter(this.active)
         // magicCounter.splice(this,1)
+        // probar con SHIFT
     }
   };
 }
