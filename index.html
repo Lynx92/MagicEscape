@@ -4,16 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rye&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Magic Escape</title>
   </head>
   <body>
-
-      <!-- <video width="device-width" height="500" autoplay muted loop>
-          <source src="./img/menuWallpaper.webm" type="video/webm"> -->
-          
-           
-        <!-- </video> -->
+    <div class="menu">
+      <span class="name">MAGIC ESCAPE</span>
+      <button class="btn">START</button>
+      <video height="100" preload="auto" autoplay muted loop>
+        <source src="./img/menuWallpaper.webm" type="video/webm" />
+      </video>
+      <iframe src="./img/music.mp3" autoplay loop style="display:none"></iframe>
+    </div>
 
     <canvas id="myCanvas"></canvas>
 
@@ -28,6 +34,5 @@
     <!-- <script src="js/enemy.js"></script> -->
     <!-- <script src="js/magic.js"></script> -->
     <!-- <script src="js/damage.js"></script> -->
-    
   </body>
 </html>

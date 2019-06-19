@@ -1,3 +1,14 @@
+let startButton = document.querySelector(".btn")
+
+startButton.onclick = function () {
+let menu = document.querySelector(".menu")
+menu.remove()
+startGame()
+}
+
+
+function startGame() {
+
 /** @type HTMLCanvasElement */
 let canvas = document.querySelector("#myCanvas");
 
@@ -212,7 +223,8 @@ class Player {
   //Funcion de lanzar magia
 
   magicCast() {
-    let magics = new Magic(this.x, this.y + 20, 30, 30, this.ctx);
+    let magics = new Magic();
+    damageToEnemy()
     magics.init();
   }
 
@@ -220,83 +232,49 @@ class Player {
   control() {
     document.onkeydown = e => {
       switch (e.keyCode) {
-        case 39:
+        case 39: // Go Right
           this.right = true;
           this.left = false;
           this.up = false;
           this.down = false;
           break;
-        case 37:
+        case 37: // Go Left
           this.right = false;
           this.left = true;
           this.up = false;
           this.down = false;
           break;
-        case 38:
+        case 38: // Go Up
           this.right = false;
           this.left = false;
           this.up = true;
           this.down = false;
           break;
-        case 40:
+        case 40: // Go Down
           this.right = false;
           this.left = false;
           this.up = false;
           this.down = true;
           break;
-        case 32:
+        case 32: // Attack (Space)
           if (mana.points > 15) {
             this.magicCast();
             mana.points -= 15;
           }
-
+          // damageToEnemy()
           break;
       }
-      //     if (e.keyCode == 39) {
-      //     // RIGHT
-
-      //     this.right = true;
-      //     this.left = false;
-      //     this.up = false;
-      //     this.down = false;
-      //   }
-      //   if (e.keyCode == 37) {
-      //     //LEFT
-
-      //     this.right = false;
-      //     this.left = true;
-      //     this.up = false;
-      //     this.down = false;
-      //   }
-      //   if (e.keyCode == 38) {
-      //     // UP
-
-      //     this.right = false;
-      //     this.left = false;
-      //     this.up = true;
-      //     this.down = false;
-      //   }
-      //   if (e.keyCode == 40) {
-      //     // DOWN
-
-      //     this.right = false;
-      //     this.left = false;
-      //     this.up = false;
-      //     this.down = true;
-      //   }
-
-      //   if (e.keyCode == 32) {
-
-      //     this.magicCast()
-
-      //   }
+      
     };
   }
 }
 let player = new Player();
 
-///////////////ENEMY///////////////////
 
+
+
+
+///////////////ENEMY///////////////////
 
 class Enemy {
   constructor() {
@@ -380,21 +358,21 @@ class Enemy {
 
 let enemy2 = new Enemy();
 let enemy = new Enemy();
-let enemyArr = [enemy,enemy2]
+let enemyArr = [enemy];
 
-/////////////////MAGIC////////////////
+///////////////////////// MAGIC //////////////////////////
 let magicCounter = [];
 
 class Magic {
-  constructor(x, y, w, h, ctx) {
-    this.x = x;
-    this.y = y;
+  constructor() {
+    this.x = player.x;
+    this.y = player.y;
     this.speed = 5;
     this.active = true;
-    this.sizeW = w;
-    this.sizeH = h;
+    this.sizeW = 30;
+    this.sizeH = 30;
     this.ctx = ctx;
-    this.imgMagic = new Image(); 
+    this.imgMagic = new Image();
     this.imgMagic.src = "./img/magic.png";
     this.imgMagic.frames = 3;
     this.imgMagic.frameIndex = 0;
@@ -402,6 +380,7 @@ class Magic {
 
   init() {
     magicCounter.push(this);
+    // this.damageToEnemy()
   }
 
   draw() {
@@ -419,7 +398,7 @@ class Magic {
         this.sizeH
       );
     }
-    if (player.up) {
+    if (player.up) { //Controlar la direccion de la magia
       this.y -= this.speed;
     }
     if (player.right) {
@@ -465,20 +444,29 @@ class Magic {
       magicCounter.shift(this);
     }
 
-    if (magics.active) {
-      damageToEnemy()
-    }
   }
-}
+
+  damageToEnemy() {
+    console.log(getDist(enemy.x, enemy.y, magics.x, magics.y));
+    if (getDist(enemy.x, enemy.y, magics.x, magics.y) < 300) {
+      enemy.active = false;
+      // enemyArr.pop(this);
+    }
+
+}}
 
 function drawMagic() {
   let counter = magicCounter.length;
-
+  // damageToEnemy();
   for (var i = 0; i < counter; i++) {
     magicCounter[i].draw();
     magicCounter[i].animate();
   }
 }
+let magics = new Magic();
+
+
+
 
 ////////////////BACKGROUND//////////////
 class Background {
@@ -591,10 +579,10 @@ let background = new Background();
 let hpCount = 0;
 
 let health = {
-  points: 50,
+  points: 100,
   reload: true
 };
-
+// HP recharges over time
 function hpRecharger() {
   if (health.points < 100) {
     health.reload = true;
@@ -611,11 +599,11 @@ function hpRecharger() {
     health.points = 0;
   }
 }
-
+//Draw the HP circle
 function barHP() {
   hpRecharger();
   barHPBorder();
-  die()
+  die();
   ctx.fillStyle = "#8F210E";
   ctx.beginPath();
   ctx.arc(260, h - 50, health.points / 2.5, 0, 2 * Math.PI);
@@ -635,8 +623,8 @@ function barHPBorder() {
 }
 
 function die() {
-  if(health.points == 0) {
-    alert('You Died...')
+  if (health.points == 0) {
+    alert("You Died...");
     location.reload();
   }
 }
@@ -645,10 +633,10 @@ function die() {
 let manaCount = 0;
 
 let mana = {
-  points: 50,
+  points: 100,
   reload: true
 };
-
+// MP recharges over time
 function manaRecharger() {
   if (mana.points < 100) {
     mana.reload = true;
@@ -665,7 +653,7 @@ function manaRecharger() {
     mana.points = 0;
   }
 }
-
+// Draw the MP circle
 function barMP() {
   manaRecharger();
   barMPBorder();
@@ -710,9 +698,11 @@ function damageToPlayer() {
 }
 //Do damage to enemy when magic touchs him
 function damageToEnemy() {
-  if (getDist(magic.x, magic.y, player.x, player.y) < 300) {
+  console.log(enemy.x, enemy.y, magics.x, magics.y)
+  console.log(getDist(enemy.x, enemy.y, magics.x, magics.y));
+  if (getDist(enemy.x, enemy.y, magics.x, magics.y) < 300) {
     enemy.active = false;
-    enemyArr.pop()
+    enemyArr.pop(this);
   }
 }
 
@@ -726,14 +716,15 @@ setInterval(() => {
   background.draw();
   barHP();
   barMP();
-  enemy.animate();
-  enemy2.animate();
   player.animate();
+  enemy.animate();
+  // enemy2.animate();
   drawMagic();
-  damageToPlayer();
-  // damageToEnemy()
+  // damageToPlayer();
 }, 1000 / fps);
 
 function clearScreen() {
   ctx.clearRect(0, 0, w, h);
+}
+
 }

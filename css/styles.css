@@ -126,3 +126,49 @@ html,
 body {
   overflow: hidden;
 }
+
+video {
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu {
+  font-family: 'Rye', cursive;
+}
+
+.name {
+  
+  position: absolute;
+  color: gainsboro;
+  font-size:150px;
+  text-align: center;
+  text-shadow: 10px 10px rgba(9, 120, 145, 0.632);
+  left: 250px;
+  top: 100px;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.btn {
+  font-family: 'Rye', cursive;
+  position: absolute;
+  font-size: 50px;
+  color: gainsboro;
+  background: transparent;
+  text-shadow: 5px 5px rgba(9, 120, 145, 0.632);
+  text-align: center;
+  left: 37vw;
+  top: 50vh;
+  width: 400px;
+  height: 200px;
+  border: 0px solid gainsboro;
+  border-radius: 10px;
+  opacity: 0.8;
+  z-index: 2;
+  transition: background 1s;
+}
+
+.btn:hover {
+  background: rgba(11, 122, 220, 0.653);
+  opacity: 1;
+}
