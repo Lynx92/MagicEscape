@@ -697,7 +697,7 @@ function damageToPlayer() {
   }
 }
 //Do damage to enemy when magic touchs him
-function damageToEnemy() {
+damageToEnemy =()=> {
   console.log(enemy.x, enemy.y, magics.x, magics.y)
   console.log(getDist(enemy.x, enemy.y, magics.x, magics.y));
   if (getDist(enemy.x, enemy.y, magics.x, magics.y) < 300) {
@@ -705,7 +705,75 @@ function damageToEnemy() {
     enemyArr.pop(this);
   }
 }
+////////////////MANA BOTTLE////////////////////
+let bottleCounter = 0
 
+let bottles=[]
+
+class ManaBottle {
+  constructor() {
+    this.x = randomIntFromInterval(200,w-200);
+    this.y = randomIntFromInterval(200,h-200);
+
+    this.ctx = ctx;
+    this.active = true
+    this.sizeW = 50;
+    this.sizeH = 50;
+
+    this.imgManaBottle = new Image();
+    this.imgManaBottle.src = "./img/manaBottle.png";
+    this.imgManaBottle.frames = 1;
+    this.imgManaBottle.frameIndex = 0;
+  }
+
+  draw() {
+    this.ctx.drawImage(
+      this.imgManaBottle,
+      this.imgManaBottle.frameIndex *
+        Math.floor(this.imgManaBottle.width / this.imgManaBottle.frames),
+      0,
+      Math.floor(this.imgManaBottle.width / this.imgManaBottle.frames),
+      this.imgManaBottle.height,
+      this.x,
+      this.y,
+      this.sizeW,
+      this.sizeH
+      )
+
+      let bottle = new ManaBottle()
+      bottles.push(this)
+  }
+
+  getBottle() {
+
+  }
+
+}
+
+
+
+let manaBottle = new ManaBottle()
+
+////////////////SOUNDS/////////////////
+// function playAudio(){
+//   let audio = new Audio("./img/gameBackGroundMusic.mp3"
+//   );
+//   audio.volume = 0.5
+//   audio.play();
+// }
+// class Sounds {
+//   constructor() {
+  
+//   backgroundMusic = new Sounds("/img/gameBackGroundMusic.mp3");
+  
+  
+//   }
+//   playBackgroundMusic() {
+//     backgroundMusic.play();
+//   }
+// }
+
+// let sounds = new Sounds()
 ////////////////INTERVAL///////////////
 
 setInterval(() => {
@@ -713,9 +781,13 @@ setInterval(() => {
   hpCount++;
   manaCount++;
   framesCounter++;
+  bottleCounter++
+  // playAudio()
+  // sounds.playBackgroundMusic()
   background.draw();
   barHP();
   barMP();
+  // manaBottle.appear()
   player.animate();
   enemy.animate();
   // enemy2.animate();

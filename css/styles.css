@@ -125,6 +125,7 @@ table {
 html,
 body {
   overflow: hidden;
+  background: black;
 }
 
 video {
