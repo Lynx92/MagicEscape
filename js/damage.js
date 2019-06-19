@@ -16,3 +16,10 @@ function damageToPlayer() {
     health.points -= 0.3;
   }
 }
+
+
+function damageToEnemy() {
+  if (getDist(enemy.x, enemy.y, magics.x, magics.y) < 100) {
+     enemy.active = false;
+  }
+}
