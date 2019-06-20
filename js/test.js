@@ -30,7 +30,7 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-////////PLAYER//////////
+/////////////////////////PLAYER/////////////////////////
 class Player {
   constructor() {
     this.x = w2;
@@ -39,8 +39,8 @@ class Player {
     this.ctx = ctx;
     this.speed = 2;
 
-    this.w = 50;
-    this.h = 75;
+    this.w = 75;
+    this.h = 90;
 
     this.up = false;
     this.right = false;
@@ -214,14 +214,13 @@ class Player {
       this.drawStand();
     }
     //Limites Player
-    if (this.y > h - 170) this.y = h - 170;
+    if (this.y > h - 180) this.y = h - 180;
     if (this.y < 60) this.y = 60;
     if (this.x < 200) this.x = 200;
     if (this.x > w - 250) this.x = w - 250;
     this.control();
   }
   //Funcion de lanzar magia
-
   magicCast() {
     let magics = new Magic();
     damageToEnemy()
@@ -316,6 +315,9 @@ class Enemy {
     if (this.x > player.x) {
       this.x -= this.speed;
     }
+    //Limites Enemigo
+    if (this.y > h - 180) this.y = h - 180;
+    if (this.y < 60) this.y = 60;
   }
 
   //Random selector to appear on left or right side
@@ -447,7 +449,7 @@ class Magic {
   }
 
   damageToEnemy() {
-    console.log(getDist(enemy.x, enemy.y, magics.x, magics.y));
+    // console.log(getDist(enemy.x, enemy.y, player.x, player.y));
     if (getDist(enemy.x, enemy.y, magics.x, magics.y) < 300) {
       enemy.active = false;
       // enemyArr.pop(this);
@@ -463,7 +465,9 @@ function drawMagic() {
     magicCounter[i].animate();
   }
 }
-let magics = new Magic();
+
+
+let magics = new Magic()
 
 
 
@@ -698,8 +702,8 @@ function damageToPlayer() {
 }
 //Do damage to enemy when magic touchs him
 damageToEnemy =()=> {
-  console.log(enemy.x, enemy.y, magics.x, magics.y)
-  console.log(getDist(enemy.x, enemy.y, magics.x, magics.y));
+  // console.log(enemy.x, enemy.y, magics.x, magics.y)
+  // console.log(getDist(enemy.x, enemy.y, magics.x, magics.y));
   if (getDist(enemy.x, enemy.y, magics.x, magics.y) < 300) {
     enemy.active = false;
     enemyArr.pop(this);
@@ -708,12 +712,12 @@ damageToEnemy =()=> {
 ////////////////MANA BOTTLE////////////////////
 let bottleCounter = 0
 
-let bottles=[]
+
 
 class ManaBottle {
-  constructor() {
-    this.x = randomIntFromInterval(200,w-200);
-    this.y = randomIntFromInterval(200,h-200);
+  constructor(x,y) {
+    this.x = x;
+    this.y = y;
 
     this.ctx = ctx;
     this.active = true
@@ -738,10 +742,18 @@ class ManaBottle {
       this.y,
       this.sizeW,
       this.sizeH
-      )
+    )
+  }
+  //Controls when mana bottle appears and how much time the bottle stays
+  appear(){
+    if(bottleCounter >100 && bottleCounter < 400) {
+      this.draw()
+    }
 
-      let bottle = new ManaBottle()
-      bottles.push(this)
+      if (bottleCounter > 500) {
+        bottleCounter = 0
+    }
+
   }
 
   getBottle() {
@@ -750,30 +762,17 @@ class ManaBottle {
 
 }
 
-
-
-let manaBottle = new ManaBottle()
+let manaBottle = Array(10).fill().map(x => new ManaBottle(randomIntFromInterval(300,800),randomIntFromInterval(300,800)))
 
 ////////////////SOUNDS/////////////////
-// function playAudio(){
-//   let audio = new Audio("./img/gameBackGroundMusic.mp3"
-//   );
-//   audio.volume = 0.5
-//   audio.play();
-// }
-// class Sounds {
-//   constructor() {
-  
-//   backgroundMusic = new Sounds("/img/gameBackGroundMusic.mp3");
-  
-  
-//   }
-//   playBackgroundMusic() {
-//     backgroundMusic.play();
-//   }
-// }
+function playAudio(){
+  let audio = new Audio("./img/gameBackGroundMusic.mp3"
+  );
+  audio.volume = 0.3
+  audio.play();
+}
+// playAudio()
 
-// let sounds = new Sounds()
 ////////////////INTERVAL///////////////
 
 setInterval(() => {
@@ -782,21 +781,21 @@ setInterval(() => {
   manaCount++;
   framesCounter++;
   bottleCounter++
-  // playAudio()
-  // sounds.playBackgroundMusic()
   background.draw();
   barHP();
   barMP();
-  // manaBottle.appear()
+  manaBottle.forEach(manaBottle => manaBottle.appear())
   player.animate();
   enemy.animate();
   // enemy2.animate();
   drawMagic();
+  magics.damageToEnemy()
   // damageToPlayer();
 }, 1000 / fps);
 
 function clearScreen() {
   ctx.clearRect(0, 0, w, h);
 }
+
 
 }
