@@ -1,7 +1,6 @@
 //Selector Canvas
 let startButton = document.querySelector(".btn");
 
-
 //Selector Bton (elimina el menu y da paso a arrancar el juego)
 startButton.onclick = () => {
   let menu = document.querySelector(".menu");
@@ -262,7 +261,7 @@ function startGame() {
             if (mana.points > 15) {
               this.magicCast();
               mana.points -= 15;
-              attackSound()
+              attackSound();
             }
 
             break;
@@ -354,7 +353,7 @@ function startGame() {
   }
   ///////ENEMIES STAGES////////
 
-  ////////////STAGE/////////////
+  ////////////STAGE 1/////////////
   stageCounter = 0;
 
   let enemies = [
@@ -367,6 +366,20 @@ function startGame() {
     new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
     new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
     new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1.5)
+  ];
+
+////////////////STAGE 2///////////////
+  let enemies2 = [
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 0.5),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 0.5),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 0.5),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 0.5),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1),
+    new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1.5),
     new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 1.5)
   ];
 
@@ -459,7 +472,6 @@ function startGame() {
     damageToEnemy() {
       // console.log(enemy.x, enemy.y)
       // console.log(magicCounter[0].x, magicCounter[0].y)
-
       // console.log(getDist(enemies[0].x, enemies[0].y, magicCounter[0].x, magicCounter[0].y));
 
       if (
@@ -471,7 +483,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[0].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -482,7 +494,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[1].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -493,7 +505,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[2].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -504,7 +516,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[3].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -515,18 +527,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[4].active = false;
-        score += 10;
-      }
-      if (
-        getDist(
-          enemies[4].x,
-          enemies[4].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[4].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -537,7 +538,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[5].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -548,7 +549,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[6].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -559,7 +560,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[7].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -570,7 +571,7 @@ function startGame() {
         ) < 80
       ) {
         enemies[8].active = false;
-        score += 10;
+        score += 5;
       }
       if (
         getDist(
@@ -581,9 +582,120 @@ function startGame() {
         ) < 80
       ) {
         enemies[9].active = false;
-        score += 10;
+        score += 5;
       }
+
+    if (
+      getDist(
+        enemies2[0].x,
+        enemies2[0].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[0].active = false;
+      score += 5;
     }
+    if (
+      getDist(
+        enemies2[1].x,
+        enemies2[1].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[1].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[2].x,
+        enemies2[2].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[2].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[3].x,
+        enemies2[3].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[3].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[4].x,
+        enemies2[4].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[4].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[5].x,
+        enemies2[5].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[5].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[6].x,
+        enemies2[6].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[6].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[7].x,
+        enemies2[7].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[7].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[8].x,
+        enemies2[8].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[8].active = false;
+      score += 5;
+    }
+    if (
+      getDist(
+        enemies2[9].x,
+        enemies2[9].y,
+        magicCounter[0].x,
+        magicCounter[0].y
+      ) < 80
+    ) {
+      enemies2[9].active = false;
+      score += 5;
+    }
+  }
   }
 
   function drawMagic() {
@@ -880,6 +992,66 @@ function startGame() {
     ) {
       health.points -= 0.3;
     }
+    if (
+      getDist(player.x, player.y, enemies2[0].x, enemies2[0].y) < 100 &&
+      enemies2[0].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[1].x, enemies2[1].y) < 100 &&
+      enemies2[1].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[2].x, enemies2[2].y) < 100 &&
+      enemies2[2].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[3].x, enemies2[3].y) < 100 &&
+      enemies2[3].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[4].x, enemies2[4].y) < 100 &&
+      enemies2[4].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[5].x, enemies2[5].y) < 100 &&
+      enemies2[5].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[6].x, enemies2[6].y) < 100 &&
+      enemies2[6].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[7].x, enemies2[7].y) < 100 &&
+      enemies2[7].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[8].x, enemies2[8].y) < 100 &&
+      enemies2[8].active == true
+    ) {
+      health.points -= 0.3;
+    }
+    if (
+      getDist(player.x, player.y, enemies2[9].x, enemies2[9].y) < 100 &&
+      enemies2[9].active == true
+    ) {
+      health.points -= 0.3;
+    }
   }
   //Do damage to enemy when magic touchs him
   // damageToEnemy = () => {
@@ -928,7 +1100,7 @@ function startGame() {
       if (this.active) {
         if (bottleCounter > 200 && bottleCounter < 600) {
           this.draw();
-          potionSound()
+          potionSound();
         }
       }
 
@@ -972,26 +1144,46 @@ function startGame() {
     audio.volume = 0.7;
     audio.play();
   }
-  playAudio()
+
+  playAudio();
 
   //////////////////CHANGE LEVEL////////////
-
-  function nextStage() {
-    enemies[0].animate();
-    enemies[1].animate();
-    if (stageCounter > 200) {
+  function firstStage(){
+      enemies[0].animate();
+      enemies[1].animate();
       enemies[2].animate();
       enemies[3].animate();
       enemies[4].animate();
+      if(stageCounter > 600){
       enemies[5].animate();
       enemies[6].animate();
       enemies[7].animate();
       enemies[8].animate();
-      enemies[9].animate();
+      enemies[9].animate();}
+      nextStage()
+  }
+
+
+
+  function nextStage() {
+    
+    if (stageCounter > 1100) {
+      stage = 2
+      enemies2[0].animate();
+      enemies2[1].animate();
+      enemies2[2].animate();
+      enemies2[3].animate();
+      enemies2[4].animate();
+      enemies2[5].animate();
+      enemies2[6].animate();
+      enemies2[7].animate();
+      enemies2[8].animate();
+      enemies2[9].animate();
     }
   }
   //////////////////SCORE////////////////////
   let score = 0;
+  let stage = 1
 
   function drawScore() {
     ctx.fillStyle = "white";
@@ -999,19 +1191,25 @@ function startGame() {
     ctx.fillText(score, w - 310, h - 45);
   }
 
+  function drawStage() {
+    ctx.fillStyle = "white";
+    ctx.font = "35px Rye";
+    ctx.fillText(`Stage ${stage}`, w2, h - 45);
+  }
+
   //////////////WIN///////////////
   function winGAme() {
     if (
-      enemies[0].active == false &&
-      enemies[1].active == false &&
-      enemies[2].active == false &&
-      enemies[3].active == false &&
-      enemies[4].active == false &&
-      enemies[5].active == false &&
-      enemies[6].active == false &&
-      enemies[7].active == false &&
-      enemies[8].active == false &&
-      enemies[9].active == false
+      enemies2[0].active == false &&
+      enemies2[1].active == false &&
+      enemies2[2].active == false &&
+      enemies2[3].active == false &&
+      enemies2[4].active == false &&
+      enemies2[5].active == false &&
+      enemies2[6].active == false &&
+      enemies2[7].active == false &&
+      enemies2[8].active == false &&
+      enemies2[9].active == false
     ) {
       alert(`You Win! Score: ${score}`);
       location.reload();
@@ -1032,10 +1230,11 @@ function startGame() {
     barMP();
     manaBottle.appear();
     drawScore();
+    drawStage()
     player.animate();
     drawMagic();
-    nextStage();
-    damageToPlayer();
+    firstStage();
+    // damageToPlayer();
     winGAme();
   }, 1000 / fps);
 
