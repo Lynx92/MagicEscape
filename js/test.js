@@ -216,10 +216,32 @@ function startGame() {
         this.drawStand();
       }
       //Limites Player
-      if (this.y > h - 180) this.y = h - 180;
-      if (this.y < 60) this.y = 60;
-      if (this.x < 200) this.x = 200;
-      if (this.x > w - 250) this.x = w - 250;
+      if (this.y > h - 180) {
+        this.y = h - 180
+        this.up = false
+        this.right = false
+        this.down = false
+        this.left = false}
+      if (this.y < 60) {
+        this.y = 60
+        this.up = false
+        this.right = false
+        this.down = false
+        this.left = false}
+      if (this.x < 200) {
+        this.x = 200
+        this.up = false
+        this.right = false
+        this.down = false
+        this.left = false
+      }
+      if (this.x > w - 250) {
+        this.x = w - 250
+        this.up = false
+        this.right = false
+        this.down = false
+        this.left = false}
+
       this.control();
     }
     //Funcion de lanzar magia
@@ -1234,7 +1256,7 @@ function startGame() {
     player.animate();
     drawMagic();
     firstStage();
-    // damageToPlayer();
+    damageToPlayer();
     winGAme();
   }, 1000 / fps);
 
