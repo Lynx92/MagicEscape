@@ -498,7 +498,7 @@ function startGame() {
       // console.log(enemy.x, enemy.y)
       // console.log(magicCounter[0].x, magicCounter[0].y)
       // console.log(getDist(enemies[0].x, enemies[0].y, magicCounter[0].x, magicCounter[0].y));
-
+      
       if (
         getDist(
           enemies[0].x,
@@ -1079,7 +1079,7 @@ function startGame() {
     }
   }
   ////////////////HEALTH BOTTLE//////////////////
-  let bottleHPCount = 0
+  let bottleHPCount = 0;
   class HealthBottle {
     constructor() {
       this.x = 300;
@@ -1114,13 +1114,13 @@ function startGame() {
     appear() {
       this.getBottle();
       if (this.active) {
-        if (bottleHPCount > 200 && bottleHPCount < 600) {
+        if (bottleHPCount > 400 && bottleHPCount < 1200) {
           this.draw();
-          potionSound();
+          
         }
       }
 
-      if (bottleHPCount > 700) {
+      if (bottleHPCount > 1400) {
         bottleHPCount = 0;
         this.x = selectPos();
         this.y = selectPos();
@@ -1129,17 +1129,17 @@ function startGame() {
     }
 
     getBottle() {
+      if(this.active) {
       if (getDist(healthBottle.x, healthBottle.y, player.x, player.y) < 100) {
         this.active = false;
         health.points += 5;
+        potionSound();
         // console.log("Ñam");
-      }
+      }}
     }
   }
 
-  let healthBottle = new HealthBottle()
-
-
+  let healthBottle = new HealthBottle();
 
   ////////////////MANA BOTTLE////////////////////
   let bottleCounter = 0;
@@ -1180,7 +1180,7 @@ function startGame() {
       if (this.active) {
         if (bottleCounter > 200 && bottleCounter < 600) {
           this.draw();
-          potionSound();
+          
         }
       }
 
@@ -1193,9 +1193,11 @@ function startGame() {
     }
 
     getBottle() {
+      if(this.active) {
       if (getDist(manaBottle.x, manaBottle.y, player.x, player.y) < 100) {
         this.active = false;
         mana.points += 5;
+        potionSound();}
         // console.log("Ñam");
       }
     }
@@ -1206,6 +1208,72 @@ function startGame() {
   function selectPos() {
     return randomIntFromInterval(300, 800);
   }
+
+  ////////////////COIN/////////////////
+  let coinCointer = 0;
+
+  class Coin {
+    constructor() {
+      this.x = 500;
+      this.y = 300;
+      this.ctx = ctx;
+      this.active = false;
+      this.sizeW = 50;
+      this.sizeH = 50;
+
+      this.imgCoin = new Image();
+      this.imgCoin.src = "./img/coin.png";
+      this.imgCoin.frames = 10;
+      this.imgCoin.frameIndex = 0;
+    }
+
+    draw() {
+      this.ctx.drawImage(
+        this.imgCoin,
+        this.imgCoin.frameIndex *
+          Math.floor(this.imgCoin.width / this.imgCoin.frames),
+        0,
+        Math.floor(this.imgCoin.width / this.imgCoin.frames),
+        this.imgCoin.height,
+        this.x,
+        this.y,
+        this.sizeW,
+        this.sizeH
+      );
+    }
+
+    //Controls when mana bottle appears and how much time the bottle stays
+    appear() {
+      this.getCoin();
+      if (this.active) {
+        if (coinCointer > 0 && coinCointer < 600) {
+          this.draw();
+          if (framesCounter % 10 == 0) this.imgCoin.frameIndex++;
+          if (this.imgCoin.frameIndex >= 10) this.imgCoin.frameIndex = 0;
+          ;
+        }
+      }
+
+      if (coinCointer > 700) {
+        coinCointer = 0;
+        this.x = selectPos();
+        this.y = selectPos();
+        this.active = true;
+      }
+    }
+
+    getCoin() {
+      if(this.active) {
+      if (getDist(coin.x, coin.y, player.x, player.y) < 100) {
+        this.active = false;
+        score += 5;
+        coinSound()
+        // console.log("Ñam");
+      }
+    }
+  }
+  }
+  let coin = new Coin();
 
   ////////////////SOUNDS/////////////////
   function playAudio() {
@@ -1219,8 +1287,15 @@ function startGame() {
     audio.volume = 0.7;
     audio.play();
   }
+
   function potionSound() {
     let audio = new Audio("./img/potion.mp3");
+    audio.volume = 0.7;
+    audio.play();
+  }
+
+  function coinSound() {
+    let audio = new Audio("./img/coinSound.mp3");
     audio.volume = 0.7;
     audio.play();
   }
@@ -1291,30 +1366,38 @@ function startGame() {
     ) {
       alert(`You Win! Score: ${score}`);
       location.reload();
+      clearInterval()
     }
+  }
+
+
+  function winGameScreen() {
+    ctx.fillRect
   }
 
   //////////////////////INTERVAL/////////////////////
 
-  setInterval(() => {
+  let interval = setInterval(() => {
     clearScreen();
     hpCount++;
     manaCount++;
     framesCounter++;
     bottleCounter++;
-    bottleHPCount++
+    bottleHPCount++;
+    coinCointer++;
     stageCounter++;
     background.draw();
     barHP();
     barMP();
     manaBottle.appear();
-    healthBottle.appear()
+    healthBottle.appear();
+    coin.appear();
     drawScore();
     drawStage();
     player.animate();
     drawMagic();
     firstStage();
-    damageToPlayer();
+    // damageToPlayer();
     winGAme();
   }, 1000 / fps);
 
