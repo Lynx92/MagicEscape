@@ -283,9 +283,9 @@ function startGame() {
             this.down = true;
             break;
           case 32: // Attack (Space)
-            if (mana.points > 15) {
+            if (mana.points > 35) {
               this.magicCast();
-              mana.points -= 15;
+              mana.points -= 35;
               attackSound();
             }
 
@@ -498,227 +498,285 @@ function startGame() {
       // console.log(enemy.x, enemy.y)
       // console.log(magicCounter[0].x, magicCounter[0].y)
       // console.log(getDist(enemies[0].x, enemies[0].y, magicCounter[0].x, magicCounter[0].y));
-      
-      if (
-        getDist(
-          enemies[0].x,
-          enemies[0].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[0].active = false;
-        score += 5;
+      if (enemies[0].active == true) {
+        if (
+          getDist(
+            enemies[0].x,
+            enemies[0].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[0].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[1].x,
-          enemies[1].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[1].active = false;
-        score += 5;
+      if (enemies[1].active == true) {
+        if (
+          getDist(
+            enemies[1].x,
+            enemies[1].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[1].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[2].x,
-          enemies[2].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[2].active = false;
-        score += 5;
+      if (enemies[2].active == true) {
+        if (
+          getDist(
+            enemies[2].x,
+            enemies[2].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[2].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[3].x,
-          enemies[3].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[3].active = false;
-        score += 5;
+      if (enemies[3].active == true) {
+        if (
+          getDist(
+            enemies[3].x,
+            enemies[3].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[3].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[4].x,
-          enemies[4].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[4].active = false;
-        score += 5;
+      if (enemies[4].active == true) {
+        if (
+          getDist(
+            enemies[4].x,
+            enemies[4].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[4].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[5].x,
-          enemies[5].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[5].active = false;
-        score += 5;
+      if (enemies[5].active == true) {
+        if (
+          getDist(
+            enemies[5].x,
+            enemies[5].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[5].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[6].x,
-          enemies[6].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[6].active = false;
-        score += 5;
+      if (enemies[6].active == true) {
+        if (
+          getDist(
+            enemies[6].x,
+            enemies[6].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[6].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[7].x,
-          enemies[7].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[7].active = false;
-        score += 5;
+      if (enemies[7].active == true) {
+        if (
+          getDist(
+            enemies[7].x,
+            enemies[7].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[7].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[8].x,
-          enemies[8].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[8].active = false;
-        score += 5;
+      if (enemies[8].active == true) {
+        if (
+          getDist(
+            enemies[8].x,
+            enemies[8].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[8].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies[9].x,
-          enemies[9].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies[9].active = false;
-        score += 5;
+      if (enemies[9].active == true) {
+        if (
+          getDist(
+            enemies[9].x,
+            enemies[9].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies[9].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-
-      if (
-        getDist(
-          enemies2[0].x,
-          enemies2[0].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[0].active = false;
-        score += 5;
+      if (enemies2[0].active == true) {
+        if (
+          getDist(
+            enemies2[0].x,
+            enemies2[0].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[0].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[1].x,
-          enemies2[1].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[1].active = false;
-        score += 5;
+      if (enemies2[1].active == true) {
+        if (
+          getDist(
+            enemies2[1].x,
+            enemies2[1].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[1].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[2].x,
-          enemies2[2].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[2].active = false;
-        score += 5;
+      if (enemies2[2].active == true) {
+        if (
+          getDist(
+            enemies2[2].x,
+            enemies2[2].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[2].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[3].x,
-          enemies2[3].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[3].active = false;
-        score += 5;
+      if (enemies2[3].active == true) {
+        if (
+          getDist(
+            enemies2[3].x,
+            enemies2[3].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[3].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[4].x,
-          enemies2[4].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[4].active = false;
-        score += 5;
+      if (enemies2[4].active == true) {
+        if (
+          getDist(
+            enemies2[4].x,
+            enemies2[4].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[4].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[5].x,
-          enemies2[5].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[5].active = false;
-        score += 5;
+      if (enemies2[5].active == true) {
+        if (
+          getDist(
+            enemies2[5].x,
+            enemies2[5].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[5].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[6].x,
-          enemies2[6].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[6].active = false;
-        score += 5;
+      if (enemies2[6].active == true) {
+        if (
+          getDist(
+            enemies2[6].x,
+            enemies2[6].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[6].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[7].x,
-          enemies2[7].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[7].active = false;
-        score += 5;
+      if (enemies2[7].active == true) {
+        if (
+          getDist(
+            enemies2[7].x,
+            enemies2[7].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[7].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[8].x,
-          enemies2[8].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[8].active = false;
-        score += 5;
+      if (enemies2[8].active == true) {
+        if (
+          getDist(
+            enemies2[8].x,
+            enemies2[8].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[8].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
-      if (
-        getDist(
-          enemies2[9].x,
-          enemies2[9].y,
-          magicCounter[0].x,
-          magicCounter[0].y
-        ) < 80
-      ) {
-        enemies2[9].active = false;
-        score += 5;
+      if (enemies2[9].active == true) {
+        if (
+          getDist(
+            enemies2[9].x,
+            enemies2[9].y,
+            magicCounter[0].x,
+            magicCounter[0].y
+          ) < 80
+        ) {
+          enemies2[9].active = false;
+          score += 5;
+          enemyDieSound();
+        }
       }
     }
   }
@@ -890,8 +948,11 @@ function startGame() {
 
   function die() {
     if (health.points == 0) {
-      alert("You Died...");
-      location.reload();
+      loseGameScreen();
+      musicAudio.src = "./img/loseTheme.mp3";
+      musicAudio.play()
+      // location.reload();
+      clearInterval(interval);
     }
   }
 
@@ -958,121 +1019,121 @@ function startGame() {
   //Do damage to the player´s HP when enemy is near
   function damageToPlayer() {
     if (
-      getDist(player.x, player.y, enemies[0].x, enemies[0].y) < 100 &&
+      getDist(player.x, player.y, enemies[0].x, enemies[0].y) < 80 &&
       enemies[0].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[1].x, enemies[1].y) < 100 &&
+      getDist(player.x, player.y, enemies[1].x, enemies[1].y) < 80 &&
       enemies[1].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[2].x, enemies[2].y) < 100 &&
+      getDist(player.x, player.y, enemies[2].x, enemies[2].y) < 80 &&
       enemies[2].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[3].x, enemies[3].y) < 100 &&
+      getDist(player.x, player.y, enemies[3].x, enemies[3].y) < 80 &&
       enemies[3].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[4].x, enemies[4].y) < 100 &&
+      getDist(player.x, player.y, enemies[4].x, enemies[4].y) < 80 &&
       enemies[4].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[5].x, enemies[5].y) < 100 &&
+      getDist(player.x, player.y, enemies[5].x, enemies[5].y) < 80 &&
       enemies[5].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[6].x, enemies[6].y) < 100 &&
+      getDist(player.x, player.y, enemies[6].x, enemies[6].y) < 80 &&
       enemies[6].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[7].x, enemies[7].y) < 100 &&
+      getDist(player.x, player.y, enemies[7].x, enemies[7].y) < 80 &&
       enemies[7].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[8].x, enemies[8].y) < 100 &&
+      getDist(player.x, player.y, enemies[8].x, enemies[8].y) < 80 &&
       enemies[8].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies[9].x, enemies[9].y) < 100 &&
+      getDist(player.x, player.y, enemies[9].x, enemies[9].y) < 80 &&
       enemies[9].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[0].x, enemies2[0].y) < 100 &&
+      getDist(player.x, player.y, enemies2[0].x, enemies2[0].y) < 80 &&
       enemies2[0].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[1].x, enemies2[1].y) < 100 &&
+      getDist(player.x, player.y, enemies2[1].x, enemies2[1].y) < 80 &&
       enemies2[1].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[2].x, enemies2[2].y) < 100 &&
+      getDist(player.x, player.y, enemies2[2].x, enemies2[2].y) < 80 &&
       enemies2[2].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[3].x, enemies2[3].y) < 100 &&
+      getDist(player.x, player.y, enemies2[3].x, enemies2[3].y) < 80 &&
       enemies2[3].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[4].x, enemies2[4].y) < 100 &&
+      getDist(player.x, player.y, enemies2[4].x, enemies2[4].y) < 80 &&
       enemies2[4].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[5].x, enemies2[5].y) < 100 &&
+      getDist(player.x, player.y, enemies2[5].x, enemies2[5].y) < 80 &&
       enemies2[5].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[6].x, enemies2[6].y) < 100 &&
+      getDist(player.x, player.y, enemies2[6].x, enemies2[6].y) < 80 &&
       enemies2[6].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[7].x, enemies2[7].y) < 100 &&
+      getDist(player.x, player.y, enemies2[7].x, enemies2[7].y) < 80 &&
       enemies2[7].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[8].x, enemies2[8].y) < 100 &&
+      getDist(player.x, player.y, enemies2[8].x, enemies2[8].y) < 80 &&
       enemies2[8].active == true
     ) {
       health.points -= 0.3;
     }
     if (
-      getDist(player.x, player.y, enemies2[9].x, enemies2[9].y) < 100 &&
+      getDist(player.x, player.y, enemies2[9].x, enemies2[9].y) < 80 &&
       enemies2[9].active == true
     ) {
       health.points -= 0.3;
@@ -1116,7 +1177,6 @@ function startGame() {
       if (this.active) {
         if (bottleHPCount > 400 && bottleHPCount < 1200) {
           this.draw();
-          
         }
       }
 
@@ -1129,13 +1189,14 @@ function startGame() {
     }
 
     getBottle() {
-      if(this.active) {
-      if (getDist(healthBottle.x, healthBottle.y, player.x, player.y) < 100) {
-        this.active = false;
-        health.points += 5;
-        potionSound();
-        // console.log("Ñam");
-      }}
+      if (this.active) {
+        if (getDist(healthBottle.x, healthBottle.y, player.x, player.y) < 80) {
+          this.active = false;
+          health.points += 5;
+          potionSound();
+          // console.log("Ñam");
+        }
+      }
     }
   }
 
@@ -1180,7 +1241,6 @@ function startGame() {
       if (this.active) {
         if (bottleCounter > 200 && bottleCounter < 600) {
           this.draw();
-          
         }
       }
 
@@ -1193,11 +1253,12 @@ function startGame() {
     }
 
     getBottle() {
-      if(this.active) {
-      if (getDist(manaBottle.x, manaBottle.y, player.x, player.y) < 100) {
-        this.active = false;
-        mana.points += 5;
-        potionSound();}
+      if (this.active) {
+        if (getDist(manaBottle.x, manaBottle.y, player.x, player.y) < 80) {
+          this.active = false;
+          mana.points += 5;
+          potionSound();
+        }
         // console.log("Ñam");
       }
     }
@@ -1250,7 +1311,6 @@ function startGame() {
           this.draw();
           if (framesCounter % 10 == 0) this.imgCoin.frameIndex++;
           if (this.imgCoin.frameIndex >= 10) this.imgCoin.frameIndex = 0;
-          ;
         }
       }
 
@@ -1263,24 +1323,23 @@ function startGame() {
     }
 
     getCoin() {
-      if(this.active) {
-      if (getDist(coin.x, coin.y, player.x, player.y) < 100) {
-        this.active = false;
-        score += 5;
-        coinSound()
-        // console.log("Ñam");
+      if (this.active) {
+        if (getDist(coin.x, coin.y, player.x, player.y) < 80) {
+          this.active = false;
+          score += 5;
+          coinSound();
+          // console.log("Ñam");
+        }
       }
     }
-  }
   }
   let coin = new Coin();
 
   ////////////////SOUNDS/////////////////
-  function playAudio() {
-    let audio = new Audio("./img/gameBackGroundMusic.mp3");
-    audio.volume = 0.1;
-    audio.play();
-  }
+
+  let musicAudio = new Audio("./img/gameBackGroundMusic.mp3");
+  musicAudio.volume = 0.1;
+  musicAudio.play();
 
   function attackSound() {
     let audio = new Audio("./img/attackSound.mp3");
@@ -1300,7 +1359,11 @@ function startGame() {
     audio.play();
   }
 
-  playAudio();
+  function enemyDieSound() {
+    let audio = new Audio("./img/enemyDieSound.mp3");
+    audio.volume = 0.7;
+    audio.play();
+  }
 
   //////////////////CHANGE LEVEL////////////
   function firstStage() {
@@ -1364,15 +1427,47 @@ function startGame() {
       enemies2[8].active == false &&
       enemies2[9].active == false
     ) {
-      alert(`You Win! Score: ${score}`);
-      location.reload();
-      clearInterval()
+      // alert(`You Win! Score: ${score}`);
+      winGameScreen();
+      musicAudio.src = "./img/victoryTheme.mp3";
+      musicAudio.play()
+      // location.reload();
+      clearInterval(interval);
     }
   }
 
-
   function winGameScreen() {
-    ctx.fillRect
+    ctx.fillStyle = "rgba(24, 147, 223, 0.708)";
+    ctx.fillRect(0, 0, w, h);
+    winText();
+  }
+
+  function loseGameScreen() {
+    ctx.fillStyle = "rgba(205, 31, 31, 0.893)";
+    ctx.fillRect(0, 0, w, h);
+    loseText();
+  }
+
+  function winText() {
+    ctx.fillStyle = "white";
+    ctx.font = "50px Rye";
+    ctx.fillText(
+      `You WIN!
+    Score ${score}`,
+      w2 - 250,
+      h2
+    );
+  }
+
+  function loseText() {
+    ctx.fillStyle = "white";
+    ctx.font = "50px Rye";
+    ctx.fillText(
+      `You LOSE...
+    Score ${score}`,
+      w2 - 270,
+      h2
+    );
   }
 
   //////////////////////INTERVAL/////////////////////
@@ -1387,7 +1482,6 @@ function startGame() {
     coinCointer++;
     stageCounter++;
     background.draw();
-    barHP();
     barMP();
     manaBottle.appear();
     healthBottle.appear();
@@ -1396,8 +1490,9 @@ function startGame() {
     drawStage();
     player.animate();
     drawMagic();
+    barHP();
     firstStage();
-    // damageToPlayer();
+    damageToPlayer();
     winGAme();
   }, 1000 / fps);
 
