@@ -147,6 +147,11 @@ video {
   opacity: 0.8;
   z-index: 1;
   animation: glow 2s ease-in-out infinite alternate;
+  transition: opacity 1s;
+}
+
+.name:hover {
+  opacity: 1;
 }
 
 @keyframes glow {
@@ -167,7 +172,7 @@ video {
   font-size: 50px;
   color: gainsboro;
   background: transparent;
-  text-shadow: 5px 5px rgba(9, 120, 145, 0.632);
+  text-shadow: 0 0 3px #fff, 0 0 3px #f5e6ff, 0 0 1px rgba(51, 37, 206, 0.872);
   text-align: center;
   left: 37vw;
   top: 50vh;
@@ -177,13 +182,12 @@ video {
   border-radius: 10px;
   opacity: 0.8;
   z-index: 2;
-  transition: background, transform 1s;
+  transition: transform 1s;
 }
 
 .btn:hover {
-  background: rgba(46, 63, 160, 0.653);
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 
 .description {
@@ -191,7 +195,6 @@ video {
   font-size: 20px;
   color: gainsboro;
   position: absolute;
-  text-shadow: 2px 2px rgba(9, 120, 145, 0.632);
   text-align: center;
   opacity: 0.8;
   width: 500px;
@@ -200,13 +203,14 @@ video {
   left: 65vw;
   top: 30vh;
   z-index: 3;
+  text-shadow: 0 0 1.5px #fff, 0 0 1.5px #f5e6ff,
+    0 0 1px rgba(51, 37, 206, 0.872);
+  transition: opacity, transform 1s;
 }
 
 .description:hover {
   opacity: 1;
-  color: cornflowerblue;
-  transition: 0.35s;
-  transform: rotateY(25deg);
+  transform: scale(1.1, 1.1);
 }
 
 span {
@@ -220,13 +224,13 @@ img {
   opacity: 0.8;
   left: 73vw;
   top: 70vh;
-  transition: 0.6;
-  transition: opacity 1s;
+  transition: opacity, transform 1s;
   z-index: 4;
 }
 
 img:hover {
   opacity: 1;
+  transform: scale(1.1, 1.1);
 }
 
 .thing {
@@ -246,6 +250,7 @@ img:hover {
   box-shadow: 0 0 100px 0px rgba(137, 243, 255, 0.8);
   animation: spin 4000ms ease 4s infinite, rainbow 5000ms linear infinite;
 }
+
 .thing .thing {
   width: 150px;
   height: 150px;

@@ -1,7 +1,7 @@
 //Selector Canvas
 let startButton = document.querySelector(".btn");
 
-//Selector Bton (elimina el menu y da paso a arrancar el juego)
+//Selector Bton (elimina el menu y arrancar el juego)
 startButton.onclick = () => {
   let menu = document.querySelector(".menu");
   menu.remove();
