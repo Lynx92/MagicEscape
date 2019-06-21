@@ -27,6 +27,7 @@ function startGame() {
   let framesCounter = 0;
   const fps = 60; //FPS
 
+  //Funcion random para tenerla preparada 
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -79,7 +80,7 @@ function startGame() {
       this.attackLeft.frames = 6;
       this.attackLeft.frameIndex = 0;
     }
-
+// Img quedarse de pie
     drawStand() {
       this.ctx.drawImage(
         this.imgPlayerStand,
@@ -94,7 +95,7 @@ function startGame() {
         this.h
       );
     }
-
+// Img ir a la izquierda
     drawLeft() {
       this.ctx.drawImage(
         this.imgPlayerLeft,
@@ -109,7 +110,7 @@ function startGame() {
         this.h
       );
     }
-
+// Img ir a la derecha
     drawRight() {
       this.ctx.drawImage(
         this.imgPlayerRight,
@@ -124,7 +125,7 @@ function startGame() {
         this.h
       );
     }
-
+// Img ir hacia arriba
     drawUp() {
       this.ctx.drawImage(
         this.imgPlayerUp,
@@ -139,7 +140,7 @@ function startGame() {
         this.h
       );
     }
-
+// Img ir hacia abajo
     drawDown() {
       this.ctx.drawImage(
         this.imgPlayerUp,
@@ -250,8 +251,7 @@ function startGame() {
     //Funcion de lanzar magia
     magicCast() {
       magicCounter.push(new Magic());
-      // damageToEnemy();
-      //magics.init();
+      
     }
 
     //Control del PLayer
@@ -380,7 +380,7 @@ function startGame() {
 
   ////////////STAGE 1/////////////
   stageCounter = 0;
-
+  
   let enemies = [
     new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 0.5),
     new Enemy(selectSide(), randomIntFromInterval(200, h - 200), 0.5),
@@ -494,6 +494,7 @@ function startGame() {
       }
     }
 
+// Hace daño al enemigo dependiendo de la distancia entre el proyectil y el enemigo
     damageToEnemy() {
       // console.log(enemy.x, enemy.y)
       // console.log(magicCounter[0].x, magicCounter[0].y)
@@ -780,7 +781,7 @@ function startGame() {
       }
     }
   }
-
+// Lanzador de magia
   function drawMagic() {
     let counter = magicCounter.length;
 
@@ -829,7 +830,7 @@ function startGame() {
       this.imgFireRight.frameIndex = 0;
     }
 
-    draw() {
+    draw() { // fondo de arena
       this.ctx.drawImage(
         this.imgBack,
         this.imgBack.frameIndex *
@@ -844,7 +845,7 @@ function startGame() {
       );
 
       this.ctx.drawImage(
-        this.imgWall,
+        this.imgWall, // pared de abajo
         this.imgWall.frameIndex *
           Math.floor(this.imgWall.width / this.imgWall.frames),
         0,
@@ -857,7 +858,7 @@ function startGame() {
       );
 
       this.ctx.drawImage(
-        this.imgGate,
+        this.imgGate, // pared de arriba
         this.imgGate.frameIndex *
           Math.floor(this.imgGate.width / this.imgGate.frames),
         0,
@@ -870,7 +871,7 @@ function startGame() {
       );
 
       this.ctx.drawImage(
-        this.imgFireLeft,
+        this.imgFireLeft, // lado izquierdo (llama)
         this.imgFireLeft.frameIndex *
           Math.floor(this.imgFireLeft.width / this.imgFireLeft.frames),
         0,
@@ -882,7 +883,7 @@ function startGame() {
         h
       );
 
-      this.ctx.drawImage(
+      this.ctx.drawImage( // lado derecho (llama)
         this.imgFireRight,
         this.imgFireRight.frameIndex *
           Math.floor(this.imgFireRight.width / this.imgFireRight.frames),
@@ -937,7 +938,7 @@ function startGame() {
     ctx.font = "17px Rye";
     ctx.fillText("HP", 247, h - 45);
   }
-
+// draw the circle under the HP circle,
   function barHPBorder() {
     ctx.fillStyle = "gray";
     ctx.beginPath();
@@ -945,7 +946,7 @@ function startGame() {
     ctx.fill();
     ctx.closePath();
   }
-
+// Game OVer Screen
   function die() {
     if (health.points == 0) {
       loseGameScreen();
@@ -994,7 +995,7 @@ function startGame() {
     ctx.font = "17px Rye";
     ctx.fillText("MP", 365, h - 45);
   }
-
+  // draw the circle under the HP circle,
   function barMPBorder() {
     ctx.fillStyle = "gray";
     ctx.beginPath();
@@ -1004,6 +1005,7 @@ function startGame() {
   }
 
   ////////////////DISTANCE && DAMAGE////////////////
+  // General function to calculate distance between two points
   function distance(x1, y1, x2, y2) {
     if (!x2) x2 = 0;
     if (!y2) y2 = 0;
@@ -1187,7 +1189,7 @@ function startGame() {
         this.active = true;
       }
     }
-
+//Player can get the bottle
     getBottle() {
       if (this.active) {
         if (getDist(healthBottle.x, healthBottle.y, player.x, player.y) < 80) {
@@ -1251,7 +1253,7 @@ function startGame() {
         this.active = true;
       }
     }
-
+//Player can get the bottle
     getBottle() {
       if (this.active) {
         if (getDist(manaBottle.x, manaBottle.y, player.x, player.y) < 80) {
@@ -1321,7 +1323,7 @@ function startGame() {
         this.active = true;
       }
     }
-
+//Player can get coins
     getCoin() {
       if (this.active) {
         if (getDist(coin.x, coin.y, player.x, player.y) < 80) {
@@ -1336,29 +1338,30 @@ function startGame() {
   let coin = new Coin();
 
   ////////////////SOUNDS/////////////////
-
+//Background music
   let musicAudio = new Audio("./img/gameBackGroundMusic.mp3");
   musicAudio.volume = 0.1;
   musicAudio.play();
 
+//each time player attacks 
   function attackSound() {
     let audio = new Audio("./img/attackSound.mp3");
     audio.volume = 0.7;
     audio.play();
   }
-
+//potion/health mana
   function potionSound() {
     let audio = new Audio("./img/potion.mp3");
     audio.volume = 0.7;
     audio.play();
   }
-
+//coin sound
   function coinSound() {
     let audio = new Audio("./img/coinSound.mp3");
     audio.volume = 0.7;
     audio.play();
   }
-
+//when enemy dies
   function enemyDieSound() {
     let audio = new Audio("./img/enemyDieSound.mp3");
     audio.volume = 0.7;
@@ -1366,6 +1369,7 @@ function startGame() {
   }
 
   //////////////////CHANGE LEVEL////////////
+  // first horde of enemies, controlled by time(stageCounter)
   function firstStage() {
     enemies[0].animate();
     enemies[1].animate();
@@ -1381,7 +1385,7 @@ function startGame() {
     }
     nextStage();
   }
-
+// when stageCounter reachs 1100ms the next horde appears to kill the player
   function nextStage() {
     if (stageCounter > 1100) {
       stage = 2;
@@ -1400,13 +1404,13 @@ function startGame() {
   //////////////////SCORE////////////////////
   let score = 0;
   let stage = 1;
-
+//draw the UI score element
   function drawScore() {
     ctx.fillStyle = "white";
     ctx.font = "30px Rye";
     ctx.fillText(score, w - 310, h - 45);
   }
-
+//draw the UI stage element
   function drawStage() {
     ctx.fillStyle = "white";
     ctx.font = "35px Rye";
@@ -1414,6 +1418,7 @@ function startGame() {
   }
 
   //////////////WIN///////////////
+  // Win Game Screen
   function winGAme() {
     if (
       enemies2[0].active == false &&
@@ -1435,19 +1440,19 @@ function startGame() {
       clearInterval(interval);
     }
   }
-
+// background color the Win Game Screen
   function winGameScreen() {
     ctx.fillStyle = "rgba(24, 147, 223, 0.708)";
     ctx.fillRect(0, 0, w, h);
     winText();
   }
-
+// background color of the Lose Game Screen
   function loseGameScreen() {
     ctx.fillStyle = "rgba(205, 31, 31, 0.893)";
     ctx.fillRect(0, 0, w, h);
     loseText();
   }
-
+// text of the win game screen
   function winText() {
     ctx.fillStyle = "white";
     ctx.font = "50px Rye";
@@ -1458,7 +1463,7 @@ function startGame() {
       h2
     );
   }
-
+// text of the game over screen
   function loseText() {
     ctx.fillStyle = "white";
     ctx.font = "50px Rye";
