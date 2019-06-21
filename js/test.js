@@ -7,7 +7,7 @@ startButton.onclick = () => {
   menu.remove();
   startGame();
 };
-
+// By Gabri
 ///////////////////////////////Arranca el juego//////////////////////////////
 function startGame() {
   /** @type HTMLCanvasElement */
@@ -1506,3 +1506,5 @@ function startGame() {
     ctx.clearRect(0, 0, w, h);
   }
 }
+
+// By Gabri
