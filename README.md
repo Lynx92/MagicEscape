@@ -14,3 +14,4 @@ Barra Espaciadora = Lanzar bola de hielo (Ataque)
 
 (La dirección de la bola de hielo puede controlarse mientras esta lanzada con el movimiento de Vivi, pero requiere algo de habilidad)
 
+![menu screenshoot](https://raw.githubusercontent.com/Lynx92/MagicEscape/master/img/screenShot.png)
