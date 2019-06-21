@@ -140,14 +140,25 @@ video {
 
 .name {
   position: absolute;
-  color: gainsboro;
   font-size: 150px;
   text-align: center;
-  text-shadow: 10px 10px rgba(9, 120, 145, 0.632);
   left: 250px;
-  top: 100px;
+  top: 50px;
   opacity: 0.8;
   z-index: 1;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #f5e6ff,
+      0 0 30px rgba(51, 37, 206, 0.872);
+    color: #f5e6ff;
+  }
+  to {
+    text-shadow: 0 0 0px #fff;
+    color: #c5c3d3ee;
+  }
 }
 
 .btn {
@@ -160,18 +171,19 @@ video {
   text-align: center;
   left: 37vw;
   top: 50vh;
-  width: 400px;
+  width: 300px;
   height: 200px;
   border: 0px solid gainsboro;
   border-radius: 10px;
   opacity: 0.8;
   z-index: 2;
-  transition: background 1s;
+  transition: background, transform 1s;
 }
 
 .btn:hover {
   background: rgba(46, 63, 160, 0.653);
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .description {
@@ -188,12 +200,13 @@ video {
   left: 65vw;
   top: 30vh;
   z-index: 3;
-  transition: color 1s;
 }
 
 .description:hover {
   opacity: 1;
   color: cornflowerblue;
+  transition: 0.35s;
+  transform: rotateY(25deg);
 }
 
 span {
@@ -214,4 +227,72 @@ img {
 
 img:hover {
   opacity: 1;
+}
+
+.thing {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+  border-top: 3px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 100px 0px rgba(137, 243, 255, 0.8);
+  animation: spin 4000ms ease 4s infinite, rainbow 5000ms linear infinite;
+}
+.thing .thing {
+  width: 150px;
+  height: 150px;
+  animation: spin 8000ms ease 3s infinite, rainbow 10000ms linear infinite;
+}
+.thing .thing .thing {
+  width: 100px;
+  height: 100px;
+  animation: spin 16000ms ease 1s infinite, rainbow 20000ms linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0.4, 0.4, 0.2, 720deg);
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 100px 0px rgba(255, 100, 100, 0.8);
+  }
+  16.67% {
+    background: rgba(255, 255, 0, 0.2);
+    box-shadow: 0 0 100px 0px rgba(255, 255, 100, 0.8);
+  }
+  33.33% {
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 100px 0px rgba(100, 255, 100, 0.8);
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 100px 0px rgba(100, 255, 255, 0.8);
+  }
+  66.67% {
+    background: rgba(0, 0, 255, 0.2);
+    box-shadow: 0 0 100px 0px rgba(100, 100, 255, 0.8);
+  }
+  83.33% {
+    background: rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 100px 0px rgba(255, 100, 255, 0.8);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 100px 0px rgba(255, 100, 100, 0.8);
+  }
 }
