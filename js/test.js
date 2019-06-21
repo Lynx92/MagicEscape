@@ -8,7 +8,11 @@ startButton.onclick = () => {
   startGame();
 };
 
-//Arranca el juego
+/////////////INTRO///////////////////////
+
+
+
+///////////////////////////////Arranca el juego//////////////////////////////
 function startGame() {
   /** @type HTMLCanvasElement */
   let canvas = document.querySelector("#myCanvas");

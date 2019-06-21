@@ -169,6 +169,48 @@ video {
 }
 
 .btn:hover {
-  background: rgba(11, 122, 220, 0.653);
+  background: rgba(46, 63, 160, 0.653);
+  opacity: 1;
+}
+
+.description {
+  font-family: "Rye", cursive;
+  font-size: 20px;
+  color: gainsboro;
+  position: absolute;
+  text-shadow: 2px 2px rgba(9, 120, 145, 0.632);
+  text-align: center;
+  opacity: 0.8;
+  width: 500px;
+  height: 500px;
+  line-height: 30px;
+  left: 65vw;
+  top: 30vh;
+  z-index: 3;
+  transition: color 1s;
+}
+
+.description:hover {
+  opacity: 1;
+  color: cornflowerblue;
+}
+
+span {
+  font-size: 25px;
+}
+
+img {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  opacity: 0.8;
+  left: 73vw;
+  top: 70vh;
+  transition: 0.6;
+  transition: opacity 1s;
+  z-index: 4;
+}
+
+img:hover {
   opacity: 1;
 }
