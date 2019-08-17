@@ -929,7 +929,6 @@ function startGame() {
   function barHP() {
     hpRecharger();
     barHPBorder();
-    die();
     ctx.fillStyle = "#8F210E";
     ctx.beginPath();
     ctx.arc(260, h - 50, health.points / 2.5, 0, 2 * Math.PI);
@@ -938,6 +937,7 @@ function startGame() {
     ctx.fillStyle = "white";
     ctx.font = "17px Rye";
     ctx.fillText("HP", 247, h - 45);
+    die();
   }
   // draw the circle under the HP circle,
   function barHPBorder() {
